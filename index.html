@@ -21,9 +21,10 @@
 
     /* ── NAV ── */
     .nav {
+      position: relative;
       display: flex;
       padding: 22px 64px;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       border-bottom: 1px solid #322E74;
     }
@@ -43,20 +44,16 @@
     }
 
     .nav-beta {
-      display: flex;
-      padding: 3px 8px;
-      align-items: center;
-      border-radius: 4px;
-      border: 1px solid #322E74;
-      background: #13112E;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      color: #B3AEFF;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #F4F2FF;
     }
 
     .nav-right {
+      position: absolute;
+      right: 64px;
       display: flex;
       align-items: center;
       gap: 30px;
@@ -545,9 +542,25 @@
 
     .footer-link:hover { color: #F4F2FF; }
 
+    /* ── STARFIELD ── */
+    #gsv-starfield {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body > *:not(#gsv-starfield) {
+      position: relative;
+      z-index: 1;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .nav { padding: 18px 24px; }
+      .nav-right { right: 24px; }
       .hero { padding: 60px 24px; }
       .hero-headline { font-size: 38px; }
       .hero-subtitle { font-size: 16px; max-width: 100%; }
@@ -564,7 +577,7 @@
     }
 
     @media (max-width: 600px) {
-      .nav-right { gap: 16px; }
+      .nav-right { right: 24px; gap: 16px; }
       .hero-headline { font-size: 28px; }
       .section-headline { font-size: 30px; }
       .differentiator-headline { font-size: 26px; }
@@ -573,18 +586,19 @@
   </style>
 </head>
 <body>
+  <canvas id="gsv-starfield" aria-hidden="true"></canvas>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-left">
       <span class="nav-logo">GSV</span>
-      <span class="nav-beta">BETA</span>
+      <span class="nav-beta">by Humans &amp; Machines, Inc.</span>
     </div>
     <div class="nav-right">
-      <a href="#" class="nav-link">Docs</a>
-      <a href="#" class="nav-link">GitHub</a>
-      <a href="#" class="nav-link">Discord</a>
-      <a href="#" class="nav-link">X</a>
+      <a href="https://github.com/deathbyknowledge/gsv" class="nav-link">GitHub</a>
+      <a href="https://docs.gsv.space" class="nav-link">Docs</a>
+      <a href="https://discord.gg/hy9ExJJFvn" class="nav-link">Discord</a>
+      <a href="https://x.com/humachinesinc" class="nav-link">X</a>
     </div>
   </nav>
 
@@ -592,13 +606,16 @@
   <section class="hero">
     <div class="eyebrow">
       <span class="eyebrow-dot"></span>
-      <span class="eyebrow-text">OPEN SOURCE · MIT · RUNS ON YOUR CLOUDFLARE</span>
+      <span class="eyebrow-text">DISTRIBUTED · ALWAYS-ON · YOURS</span>
     </div>
 
-    <h1 class="hero-headline">A mind for your machines.</h1>
+    <h1 class="hero-headline">a mind for your machines</h1>
 
     <p class="hero-subtitle">
-      GSV is a personal AI computer that spans all your devices at once and stays awake even when they're asleep. Runs in your own Cloudflare account — your keys, your data.
+      GSV is a personal AI computer that spans all your devices at once and stays awake even when they're asleep.
+      <br/>One mind across all your machines — not stuck on any single one.
+      <br/>Open source, running on the edge in your own Cloudflare account:
+      <br/>Your keys, your data. No box to babysit.
     </p>
 
     <!-- DEPLOY CARD -->
@@ -612,26 +629,26 @@
         <div class="chrome-url">deploy.gsv.space</div>
       </div>
       <div class="card-body">
-        <h2 class="card-title">Deploy your GSV</h2>
-        <p class="card-desc">Connect your Cloudflare account and your personal AI computer is up in minutes — your keys, your data, no middleman.</p>
+        <h2 class="card-title">deploy your GSV</h2>
+        <p class="card-desc">Connect your Cloudflare account and your personal AI computer is up in minutes.</p>
 
         <div class="steps-list">
           <div class="step-item">
             <span class="step-number">01</span>
-            <span class="step-label">Connect Cloudflare account</span>
+            <span class="step-label">connect Cloudflare account</span>
           </div>
           <div class="step-item">
             <span class="step-number">02</span>
-            <span class="step-label">Name your GSV</span>
+            <span class="step-label">name your GSV</span>
           </div>
           <div class="step-item">
             <span class="step-number">03</span>
-            <span class="step-label">Deploy</span>
+            <span class="step-label">deploy</span>
           </div>
         </div>
 
-        <a href="#" class="deploy-btn">
-          <span class="deploy-btn-text">Pilot your GSV</span>
+        <a href="https://deploy.gsv.space" class="deploy-btn">
+          <span class="deploy-btn-text">pilot your GSV</span>
           <span class="deploy-btn-arrow">→</span>
         </a>
 
@@ -644,14 +661,14 @@
 
   <!-- CTA BUTTONS -->
   <div class="cta-buttons">
-    <a href="#" class="btn-outline">Read the docs</a>
-    <a href="#" class="btn-outline">View on GitHub</a>
+    <a href="https://docs.gsv.space" class="btn-outline">read the docs</a>
+    <a href="https://github.com/deathbyknowledge/gsv" class="btn-outline" id="gsv-github-btn">star us on GitHub</a>
   </div>
 
   <!-- DEMO SECTION -->
   <section class="demo-section">
-    <span class="section-tag">// DEMO</span>
-    <h2 class="section-headline">See it in action</h2>
+    <span class="section-tag">DEMO</span>
+    <h2 class="section-headline">see it in action</h2>
     <p class="section-subtitle">Three devices joining one computer, a task running while the laptop is closed, and a reply over Telegram — in under two minutes.</p>
 
     <div class="video-placeholder">
@@ -682,7 +699,7 @@
         </div>
       </div>
 
-      <span class="kernel-arrow">──→</span>
+      <span class="kernel-arrow">→</span>
 
       <div class="kernel-card">
         <span class="kernel-title">GSV kernel</span>
@@ -697,17 +714,17 @@
   <section class="value-props">
     <div class="prop-card">
       <span class="prop-number">01</span>
-      <h3 class="prop-title">One mind, every device</h3>
+      <h3 class="prop-title">one mind, every device</h3>
       <p class="prop-desc">Your laptop, phone, and servers act as a single always-on computer — one context, one memory, everywhere you are.</p>
     </div>
     <div class="prop-card">
       <span class="prop-number">02</span>
-      <h3 class="prop-title">Your account, your keys</h3>
+      <h3 class="prop-title">your account, your keys</h3>
       <p class="prop-desc">Deploys to your own Cloudflare account. Full off-Cloudflare self-hosting is on the roadmap.</p>
     </div>
     <div class="prop-card">
       <span class="prop-number">03</span>
-      <h3 class="prop-title">Open from the ground up</h3>
+      <h3 class="prop-title">open from the ground up</h3>
       <p class="prop-desc">MIT-licensed. Read every line yourself, run your own, fork it. Don't take our word for it.</p>
     </div>
   </section>
@@ -715,21 +732,20 @@
   <!-- DIFFERENTIATOR -->
   <section class="differentiator-section">
     <span class="differentiator-tag">NOT ANOTHER SINGLE-BOX AGENT</span>
-    <h2 class="differentiator-headline">A computer, not an agent stuck on one host.</h2>
+    <h2 class="differentiator-headline">a computer, not an agent stuck on one host</h2>
     <p class="differentiator-desc">Most self-hosted AI runs on a single machine you pick and manage. When that machine is off, it's gone. GSV's brain lives on the edge — connecting every device you own into one computer that never sleeps.</p>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <span class="footer-copy">© 2026 Humans &amp; Machines, Inc.</span>
+    <a href="https://humansandmachin.es" class="footer-copy">© 2026 Humans &amp; Machines, Inc.</a>
     <div class="footer-links">
-      <a href="#" class="footer-link">Beta</a>
-      <a href="#" class="footer-link">MIT License</a>
-      <a href="#" class="footer-link">GitHub</a>
-      <a href="#" class="footer-link">Discord</a>
-      <a href="#" class="footer-link">X</a>
+      <a href="https://github.com/deathbyknowledge/gsv" class="footer-link">GitHub</a>
+      <a href="https://docs.gsv.space" class="footer-link">Docs</a>
+      <a href="https://discord.gg/hy9ExJJFvn" class="footer-link">Discord</a>
+      <a href="https://x.com/humachinesinc" class="footer-link">X</a>
     </div>
   </footer>
-
+  <script src="starfield.js" defer></script>
 </body>
 </html>
