@@ -159,14 +159,15 @@
 
     .hero-subtitle {
       max-width: 680px;
-      font-size: 19px;
-      font-weight: 400;
-      line-height: 152%;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 140%;
       text-align: center;
-      color: #B3AEE2;
+      color: #D4D0F5;
     }
 
-    /* ── DEPLOY CARD ── */
+
+/* ── DEPLOY CARD ── */
     .deploy-card {
       display: flex;
       width: 540px;
@@ -483,7 +484,7 @@
     .value-props {
       display: flex;
       padding: 72px 64px;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 22px;
       align-self: stretch;
     }
@@ -557,6 +558,176 @@
       color: #B3AEE2;
     }
 
+    /* ── FAQ ── */
+    .faq-section {
+      display: flex;
+      padding: 72px 64px;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      align-self: stretch;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .faq-item {
+      border-radius: 10px;
+      border: 1px solid #322E74;
+      background: #0A0820;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item[open] { border-color: #4A449E; }
+
+    .faq-item summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      color: #E2DFFF;
+      list-style: none;
+      user-select: none;
+      gap: 16px;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: #F4F2FF; }
+
+    .faq-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: #6B66C4;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      line-height: 1;
+    }
+
+    .faq-item[open] .faq-indicator { transform: rotate(45deg); }
+
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 155%;
+      color: #B3AEE2;
+    }
+
+    .faq-answer p + p { margin-top: 12px; }
+
+    .faq-answer ul {
+      margin: 10px 0;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-answer ul li {
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .faq-answer ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #4A449E;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .faq-answer strong {
+      color: #D4D0F5;
+      font-weight: 600;
+    }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      display: flex;
+      padding: 0 64px 80px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      align-self: stretch;
+    }
+
+    .newsletter-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #6B66C4;
+    }
+
+    .newsletter-headline {
+      font-size: 26px;
+      font-weight: 700;
+      text-align: center;
+      color: #F4F2FF;
+    }
+
+    .newsletter-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 150%;
+      text-align: center;
+      color: #B3AEE2;
+    }
+
+    .newsletter-row {
+      display: flex;
+      width: 100%;
+      max-width: 480px;
+      gap: 8px;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 7px;
+      border: 1px solid #322E74;
+      background: #0B0A1E;
+      font-size: 14px;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #F4F2FF;
+      outline: none;
+      transition: border-color 0.2s;
+      min-width: 0;
+    }
+
+    .newsletter-input::placeholder { color: #565199; }
+    .newsletter-input:focus { border-color: #4A449E; }
+
+    .newsletter-btn {
+      display: flex;
+      padding: 12px 22px;
+      align-items: center;
+      gap: 8px;
+      border-radius: 7px;
+      border: 1px solid #4A449E;
+      background: #5A52A8;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #F4F2FF;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .newsletter-btn:hover { background: #6860c0; }
+
+
     /* ── FOOTER ── */
     .footer {
       display: flex;
@@ -620,6 +791,10 @@
       .value-props { flex-direction: column; padding: 40px 24px; }
       .differentiator-section { padding: 40px 24px; }
       .differentiator-headline { font-size: 34px; }
+      .faq-section { padding: 40px 24px; }
+      .newsletter-section { padding: 0 24px 60px; }
+      .newsletter-row { flex-direction: column; }
+      .newsletter-btn { justify-content: center; }
       .footer { padding: 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
       .footer-links { flex-wrap: wrap; gap: 16px; }
     }
@@ -627,8 +802,10 @@
     @media (max-width: 600px) {
       .nav-right { right: 24px; gap: 16px; }
       .hero-headline { font-size: 28px; }
+      .hero-subtitle { font-size: 17px; }
       .section-headline { font-size: 30px; }
       .differentiator-headline { font-size: 26px; }
+      .newsletter-headline { font-size: 22px; }
       .card-body { padding: 24px 20px; }
     }
   </style>
@@ -660,10 +837,7 @@
     <h1 class="hero-headline">a mind for your machines</h1>
 
     <p class="hero-subtitle">
-      GSV is a personal AI computer that spans all your devices at once and stays awake even when they're asleep.
-      <br/>One mind across all your machines — not stuck on any single one.
-      <br/>Open source, running on the edge in your own Cloudflare account:
-      <br/>Your keys, your data. No box to babysit.
+      One AI across every device you own — awake even when they're not.
     </p>
 
     <!-- DEPLOY CARD -->
@@ -782,6 +956,130 @@
     <span class="differentiator-tag">NOT ANOTHER SINGLE-BOX AGENT</span>
     <h2 class="differentiator-headline">a computer, not an agent stuck on one host</h2>
     <p class="differentiator-desc">Most self-hosted AI runs on a single machine you pick and manage. When that machine is off, it's gone. GSV's brain lives on the edge — connecting every device you own into one computer that never sleeps.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-headline">common questions</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>
+          What is GSV?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>GSV is a <strong>personal AI computer</strong>. Instead of running one AI agent on one machine, it <strong>connects all your devices</strong> (laptop, home server, phone) into a single computer with <strong>an AI in the kernel</strong>. You talk to it from wherever you already are — whether that's Telegram, Discord, or a terminal — and it acts across every machine at once. <strong>The brain lives on the edge</strong>, so it keeps working even when your devices are asleep.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          What can I do with it?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>Hand it the admin you don't want to do, and let it <strong>act across all your machines at once</strong>. A few of the things people reach for first:</p>
+          <ul>
+            <li><strong>Delegate the tedious stuff.</strong> Email triage, scheduling, travel admin, the busywork of being alive. It keeps working while your laptop is closed, because the brain runs on the edge.</li>
+            <li><strong>Reach any device from anywhere.</strong> Read a log on your home server from your phone, then push from your laptop, in the same conversation. They all act as one computer.</li>
+            <li><strong>Talk to it where you already are.</strong> Telegram, Discord, a terminal — whichever you live in.</li>
+            <li><strong>Write and share your own programs.</strong> GSV is programmable, with its own apps that anyone can write, run, and share between instances.</li>
+          </ul>
+          <p>It's a computer, not a chatbot, so the real answer is <strong>'whatever you can build on it'</strong>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          What does it actually cost?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>Two costs, kept separate so you can do the math:</p>
+          <ul>
+            <li><strong>Infra:</strong> GSV runs in your own Cloudflare account and needs the Workers Paid plan, which starts at <strong>~$5/mo</strong>.</li>
+            <li><strong>Models:</strong> you bring your own model provider and <strong>pay them directly</strong> for what you use.</li>
+          </ul>
+          <p><strong>There's no GSV subscription on top.</strong> You pay Cloudflare and your model provider, nobody in between.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Do I need a Cloudflare account?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. GSV runs on <strong>Cloudflare's edge, in your account</strong>. That's how the brain stays always-on and how <strong>your keys and data stay yours</strong>. You'll need the Workers Paid plan (<strong>~$5/mo</strong>). If you don't have an account yet, setup is part of the Get Started guide.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is it really open source?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p><strong>Yes, MIT licensed</strong>, all the code is public: <a href="https://github.com/deathbyknowledge/gsv" style="color:#B3AEFF;">github.com/deathbyknowledge/gsv</a>. Read every line yourself.</p>
+          <p>One honest distinction: <strong>open source is true today</strong>. Full self-hosting off Cloudflare is <strong>on the roadmap, not shipped</strong>. Today GSV runs in your own Cloudflare account, with your keys and your data, rather than fully on your own metal. The code is all there; running it off Cloudflare just isn't supported yet.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          How is this different from running an agent on a VPS?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>An agent on a VPS is <strong>one brain in one place</strong>. It lives on the single host you picked and manage. GSV is <strong>a computer that spans every device you own at once</strong>. It can read a log on your home server and push from your laptop in the same breath, even when those devices are off, because the <strong>brain runs on the edge</strong> rather than on any one box. Different shape, not just a different agent.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is my data private?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>Your keys and your data live in your <strong>own Cloudflare account</strong> and are <strong>never routed through us</strong>. Devices connect outbound through a gateway with tokens: <strong>no open ports, no VPN, no exposed box</strong>. We're not 'infrastructure you own' in the bare-metal sense (Cloudflare is in the path), but <strong>nothing passes through GSV the company</strong>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is it ready? What's the catch?
+          <span class="faq-indicator">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>It's <strong>beta</strong>, and we build in the open. The <strong>distributed, always-on core works</strong>, and that's the part we're launching. The rough edges right now are onboarding polish and the <strong>off-Cloudflare self-hosting story</strong> (roadmap, not shipped). We'd rather tell you that up front than have you find it. <strong>Getting in now means getting in at the ground floor.</strong></p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <span class="newsletter-eyebrow">STAY UPDATED</span>
+    <h2 class="newsletter-headline">keep up with GSV</h2>
+    <p class="newsletter-desc">Early access updates, release notes, and occasional deep dives. No noise.</p>
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/humansandmachines"
+      method="post"
+      class="newsletter-row"
+    >
+      <input
+        type="email"
+        name="email"
+        id="bd-email"
+        placeholder="your@email.com"
+        class="newsletter-input"
+        required
+      />
+      <button type="submit" class="newsletter-btn">subscribe →</button>
+    </form>
   </section>
 
   <!-- FOOTER -->
