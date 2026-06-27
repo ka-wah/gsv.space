@@ -82,11 +82,14 @@
       pointer-events: none;
     }
 
+    .nav-center a { pointer-events: all; }
+
     .nav-launched-wrap {
       display: flex;
       align-items: center;
       gap: 8px;
       animation: nav-float 6s ease-in-out infinite;
+      cursor: pointer;
     }
 
     .nav-dot {
@@ -960,10 +963,10 @@
       <span class="nav-beta">by Humans &amp; Machines, Inc.</span>
     </div>
     <div class="nav-center">
-      <div class="nav-launched-wrap">
+      <a href="https://github.com/deathbyknowledge/gsv" class="nav-launched-wrap">
         <span class="nav-dot"></span>
         <span class="nav-launched">BETA JUST LAUNCHED!</span>
-      </div>
+      </a>
     </div>
     <div class="nav-right">
       <a href="https://github.com/deathbyknowledge/gsv" class="nav-link">GitHub</a>
