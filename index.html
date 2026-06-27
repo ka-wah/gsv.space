@@ -767,7 +767,7 @@
     }
 
     .faq-answer strong {
-      color: #D4D0F5;
+      color: var(--online);
       font-weight: 600;
     }
 
@@ -858,12 +858,28 @@
       border-top: 1px solid var(--border);
     }
 
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .footer-copy {
       font-family: var(--gsv-font-mono);
       font-size: 13px;
       font-weight: 400;
       color: var(--label);
     }
+
+    .footer-privacy {
+      font-family: var(--gsv-font-mono);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .footer-privacy:hover { color: var(--label); }
 
     .footer-links {
       display: flex;
@@ -919,6 +935,7 @@
       .newsletter-row { flex-direction: column; }
       .newsletter-btn { justify-content: center; }
       .footer { padding: 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+      .footer-left { flex-direction: column; align-items: flex-start; gap: 6px; }
       .footer-links { flex-wrap: wrap; gap: 16px; }
     }
 
@@ -959,7 +976,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="eyebrow">
-      <span class="eyebrow-text">DISTRIBUTED · ALWAYS-ON · YOURS</span>
+      <span class="eyebrow-text">DISTRIBUTED · ALWAYS-ON · OPEN-SOURCE</span>
     </div>
 
     <h1 class="hero-headline">a mind for your machines</h1>
@@ -1098,7 +1115,7 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p>GSV is a <strong>personal AI computer</strong>. Instead of running one AI agent on one machine, it <strong>connects all your devices</strong> (laptop, home server, phone) into a single computer with <strong>an AI in the kernel</strong>. You talk to it from wherever you already are — whether that's Telegram, Discord, or a terminal — and it acts across every machine at once. <strong>The brain lives on the edge</strong>, so it keeps working even when your devices are asleep.</p>
+          <p>GSV is a <strong>personal AI computer</strong>. Instead of running one AI agent on one machine, it connects all your devices (laptop, home server, phone) into a single computer with an AI in the kernel. You talk to it from wherever you already are — whether that's Telegram, Discord, or a terminal — and it acts across every machine at once, staying awake even when your devices are asleep.</p>
         </div>
       </details>
 
@@ -1108,14 +1125,14 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p>Hand it the admin you don't want to do, and let it <strong>act across all your machines at once</strong>. A few of the things people reach for first:</p>
+          <p>Hand it the admin you don't want to do, and let it act across all your machines at once. A few of the things people reach for first:</p>
           <ul>
-            <li><strong>Delegate the tedious stuff.</strong> Email triage, scheduling, travel admin, the busywork of being alive. It keeps working while your laptop is closed, because the brain runs on the edge.</li>
-            <li><strong>Reach any device from anywhere.</strong> Read a log on your home server from your phone, then push from your laptop, in the same conversation. They all act as one computer.</li>
-            <li><strong>Talk to it where you already are.</strong> Telegram, Discord, a terminal — whichever you live in.</li>
-            <li><strong>Write and share your own programs.</strong> GSV is programmable, with its own apps that anyone can write, run, and share between instances.</li>
+            <li>Email triage, scheduling, travel admin, the busywork of being alive. The brain stays awake even when your devices sleep.</li>
+            <li>Read a log on your home server from your phone, then push from your laptop, in the same conversation. They all act as one computer.</li>
+            <li>Talk to it where you already are — Telegram, Discord, a terminal, whichever you live in.</li>
+            <li>GSV is programmable, with its own apps that anyone can write, run, and share between instances.</li>
           </ul>
-          <p>It's a computer, not a chatbot, so the real answer is <strong>'whatever you can build on it'</strong>.</p>
+          <p>It's a computer, not a chatbot, so the real answer is <strong>whatever you can build on it</strong>.</p>
         </div>
       </details>
 
@@ -1127,10 +1144,10 @@
         <div class="faq-answer">
           <p>Two costs, kept separate so you can do the math:</p>
           <ul>
-            <li><strong>Infra:</strong> GSV runs in your own Cloudflare account and needs the Workers Paid plan, which starts at <strong>~$5/mo</strong>.</li>
-            <li><strong>Models:</strong> you bring your own model provider and <strong>pay them directly</strong> for what you use.</li>
+            <li>Infra: GSV runs in your own Cloudflare account and needs the Workers Paid plan, which starts at <strong>~$5/mo</strong>.</li>
+            <li>Models: you bring your own model provider and pay them directly for what you use.</li>
           </ul>
-          <p><strong>There's no GSV subscription on top.</strong> You pay Cloudflare and your model provider, nobody in between.</p>
+          <p>There's no GSV subscription on top. You pay Cloudflare and your model provider, nobody in between.</p>
         </div>
       </details>
 
@@ -1140,7 +1157,7 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p>Yes. GSV runs on <strong>Cloudflare's edge, in your account</strong>. That's how the brain stays always-on and how <strong>your keys and data stay yours</strong>. You'll need the Workers Paid plan (<strong>~$5/mo</strong>). If you don't have an account yet, setup is part of the Get Started guide.</p>
+          <p>Yes. GSV runs on Cloudflare's edge, in your account. That's how the brain stays always-on and how <strong>your keys and data stay yours</strong>. You'll need the Workers Paid plan (~$5/mo). If you don't have an account yet, setup is part of the Get Started guide.</p>
         </div>
       </details>
 
@@ -1150,8 +1167,8 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p><strong>Yes, MIT licensed</strong>, all the code is public: <a href="https://github.com/deathbyknowledge/gsv" style="color:var(--accent);">github.com/deathbyknowledge/gsv</a>. Read every line yourself.</p>
-          <p>One honest distinction: <strong>open source is true today</strong>. Full self-hosting off Cloudflare is <strong>on the roadmap, not shipped</strong>. Today GSV runs in your own Cloudflare account, with your keys and your data, rather than fully on your own metal. The code is all there; running it off Cloudflare just isn't supported yet.</p>
+          <p><strong>Yes, MIT licensed</strong> — all the code is public: <a href="https://github.com/deathbyknowledge/gsv" style="color:var(--accent);">github.com/deathbyknowledge/gsv</a>. Read every line yourself.</p>
+          <p>Full self-hosting off Cloudflare is on the roadmap. The runtime beneath GSV is open source, so the path to your own metal is real — not yet supported, but not a promise we can't keep.</p>
         </div>
       </details>
 
@@ -1161,7 +1178,7 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p>An agent on a VPS is <strong>one brain in one place</strong>. It lives on the single host you picked and manage. GSV is <strong>a computer that spans every device you own at once</strong>. It can read a log on your home server and push from your laptop in the same breath, even when those devices are off, because the <strong>brain runs on the edge</strong> rather than on any one box. Different shape, not just a different agent.</p>
+          <p>An agent on a VPS is <strong>one brain in one place</strong> — it lives on the single host you pick and manage. GSV is <strong>a computer that spans every device you own at once</strong>. It can read a log on your home server and push from your laptop in the same breath, because the brain runs on the edge rather than on any one box — and that brain stays awake even when your devices sleep. Different shape, not just a different agent.</p>
         </div>
       </details>
 
@@ -1171,7 +1188,7 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p>Your keys and your data live in your <strong>own Cloudflare account</strong> and are <strong>never routed through us</strong>. Devices connect outbound through a gateway with tokens: <strong>no open ports, no VPN, no exposed box</strong>. We're not 'infrastructure you own' in the bare-metal sense (Cloudflare is in the path), but <strong>nothing passes through our company, Humans &amp; Machines, Inc.</strong></p>
+          <p>Your keys and your data live in your own Cloudflare account and are <strong>never routed through us</strong>. Devices connect outbound through a gateway with tokens: no open ports, no VPN, no exposed box. We're not 'infrastructure you own' in the bare-metal sense (Cloudflare is in the path), but nothing passes through our company, Humans &amp; Machines, Inc.</p>
         </div>
       </details>
 
@@ -1181,7 +1198,7 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p>It's <strong>beta</strong>, and we build in the open. The <strong>distributed, always-on core works</strong>, and that's the part we're launching. The rough edges right now are onboarding polish and the <strong>off-Cloudflare self-hosting story</strong> (roadmap, not shipped). We'd rather tell you that up front than have you find it. <strong>Getting in now means getting in at the ground floor.</strong></p>
+          <p>It's beta, and we build in the open. The <strong>distributed, always-on core works</strong>, and that's the part we're launching. The rough edges right now are onboarding polish and the off-Cloudflare self-hosting story (roadmap, not shipped). We'd rather tell you that up front than have you find it. Getting in now means getting in at the ground floor.</p>
         </div>
       </details>
 
@@ -1212,8 +1229,12 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <a href="https://humansandmachin.es" class="footer-copy">© 2026 Humans &amp; Machines, Inc.</a>
+    <div class="footer-left">
+      <a href="https://humansandmachin.es" class="footer-copy">© 2026 Humans &amp; Machines, Inc.</a>
+      <a href="https://humansandmachin.es/privacy" class="footer-privacy">privacy</a>
+    </div>
     <div class="footer-links">
+      <a href="mailto:hello@humansandmachin.es" class="footer-link">hello@humansandmachin.es</a>
       <a href="https://github.com/deathbyknowledge/gsv" class="footer-link">GitHub</a>
       <a href="https://docs.gsv.space" class="footer-link">Docs</a>
       <a href="https://discord.gg/hy9ExJJFvn" class="footer-link">Discord</a>
