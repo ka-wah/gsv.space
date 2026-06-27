@@ -71,9 +71,48 @@
       position: relative;
       display: flex;
       padding: 22px 64px;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       border-bottom: 1px solid #322E74;
+    }
+
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .nav-launched-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: nav-float 6s ease-in-out infinite;
+    }
+
+    .nav-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #5EF2A0;
+      flex-shrink: 0;
+    }
+
+    .nav-launched {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #5EF2A0;
+      text-shadow: 0 0 14px rgba(94, 242, 160, 0.45);
+    }
+
+    @keyframes nav-float {
+      0%   { transform: translateY(0px)   rotate(-0.4deg); }
+      35%  { transform: translateY(-3px)  rotate(0.3deg);  }
+      65%  { transform: translateY(-2px)  rotate(0.5deg);  }
+      100% { transform: translateY(0px)   rotate(-0.4deg); }
     }
 
     .nav-left {
@@ -174,7 +213,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-headline { animation: none; }
+      .hero-headline       { animation: none; }
+      .nav-launched-wrap   { animation: none; }
     }
 
 
@@ -344,6 +384,16 @@
 
     .btn-outline:hover { border-color: #B3AEFF; color: #F4F2FF; }
 
+    #gsv-github-btn {
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    #gsv-github-btn:hover {
+      background: #5EF2A0;
+      border-color: #5EF2A0;
+      color: #07061A;
+    }
+
     /* ── DEMO SECTION ── */
     .demo-section {
       display: flex;
@@ -494,7 +544,7 @@
     /* ── VALUE PROPS ── */
     .value-props {
       display: flex;
-      padding: 72px 64px;
+      padding: 72px 120px;
       align-items: stretch;
       gap: 22px;
       align-self: stretch;
@@ -567,6 +617,60 @@
       line-height: 156%;
       text-align: center;
       color: #B3AEE2;
+    }
+
+    /* ── UNDER THE HOOD ── */
+    .under-hood-section {
+      display: flex;
+      padding: 72px 64px;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      align-self: stretch;
+    }
+
+    .under-hood-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 660px;
+    }
+
+    .under-hood-body {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 155%;
+      text-align: center;
+      color: #B3AEE2;
+    }
+
+    .under-hood-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-self: stretch;
+    }
+
+    .under-hood-list li {
+      padding-left: 22px;
+      position: relative;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 155%;
+      color: #B3AEE2;
+    }
+
+    .under-hood-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #4A449E;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     /* ── FAQ ── */
@@ -791,6 +895,7 @@
       .nav { padding: 18px 24px; justify-content: space-between; }
       .nav-right { right: 24px; position: static; }
       .nav-beta { display: none; }
+      .nav-center { display: none; }
       .hero { padding: 60px 24px; }
       .hero-headline { font-size: 38px; }
       .hero-subtitle { font-size: 16px; max-width: 100%; }
@@ -802,6 +907,7 @@
       .value-props { flex-direction: column; padding: 40px 24px; }
       .differentiator-section { padding: 40px 24px; }
       .differentiator-headline { font-size: 34px; }
+      .under-hood-section { padding: 40px 24px; }
       .faq-section { padding: 40px 24px; }
       .newsletter-section { padding: 0 24px 60px; }
       .newsletter-row { flex-direction: column; }
@@ -830,6 +936,12 @@
       <span class="nav-logo">GSV</span>
       <span class="nav-beta">by Humans &amp; Machines, Inc.</span>
     </div>
+    <div class="nav-center">
+      <div class="nav-launched-wrap">
+        <span class="nav-dot"></span>
+        <span class="nav-launched">BETA JUST LAUNCHED!</span>
+      </div>
+    </div>
     <div class="nav-right">
       <a href="https://github.com/deathbyknowledge/gsv" class="nav-link">GitHub</a>
       <a href="https://docs.gsv.space" class="nav-link">Docs</a>
@@ -841,7 +953,6 @@
   <!-- HERO -->
   <section class="hero">
     <div class="eyebrow">
-      <span class="eyebrow-dot"></span>
       <span class="eyebrow-text">DISTRIBUTED · ALWAYS-ON · YOURS</span>
     </div>
 
@@ -894,7 +1005,7 @@
 
   <!-- CTA BUTTONS -->
   <div class="cta-buttons">
-    <a href="https://docs.gsv.space" class="btn-outline">read the docs</a>
+    <a href="https://docs.gsv.space" class="btn-outline" id="gsv-docs-btn">read the docs</a>
     <a href="https://github.com/deathbyknowledge/gsv" class="btn-outline" id="gsv-github-btn">star us on GitHub</a>
   </div>
 
@@ -948,12 +1059,12 @@
     <div class="prop-card">
       <span class="prop-number">01</span>
       <h3 class="prop-title">one mind, every device</h3>
-      <p class="prop-desc">Your laptop, phone, and servers act as a single always-on computer — one context, one memory, everywhere you are.</p>
+      <p class="prop-desc">Your laptop, phone, and servers act as one computer — one context, one memory — and it stays awake even when they're all asleep.</p>
     </div>
     <div class="prop-card">
       <span class="prop-number">02</span>
       <h3 class="prop-title">your account, your keys</h3>
-      <p class="prop-desc">Deploys to your own Cloudflare account. Full off-Cloudflare self-hosting is on the roadmap.</p>
+      <p class="prop-desc">Runs in your own Cloudflare account — your keys, your data, never routed through us. No open ports, no VPN, nothing exposed. Full off-Cloudflare self-hosting is on the roadmap.</p>
     </div>
     <div class="prop-card">
       <span class="prop-number">03</span>
@@ -1181,6 +1292,20 @@
     };
   }
 
+  function makeGreenStar() {
+    return {
+      x:     Math.random() * W,
+      y:     Math.random() * H,
+      ch:    pick(['+', '*', '·', '•']),
+      color: MINT,
+      base:  rnd(0.5, 0.95),
+      sz:    rnd(16, 28),
+      phase: Math.random() * Math.PI * 2,
+      speed: rnd(0.6, 1.6),
+      spark: true
+    };
+  }
+
   var W = 0, H = 0, raf = null, last = 0;
   var interval = 1000 / FPS;
   var mx = -9999, my = -9999;
@@ -1193,6 +1318,7 @@
   // Surge state — 0 = calm, 1 = full surge
   var surgeTarget = 0;  // what we're heading toward
   var surgeLevel  = 0;  // current interpolated level (0–1)
+
 
   function buildBase() {
     var n = Math.min(MAX_STARS, Math.round((W * H) / DENSITY));
@@ -1211,15 +1337,23 @@
   }
   function buildSurge() {
     surgeStars = [];
-    for (var i = 0; i < SURGE_EXTRA; i++) surgeStars.push(makeStar());
+    for (var i = 0; i < SURGE_EXTRA; i++) {
+      surgeStars.push(Math.random() < 0.45 ? makeGreenStar() : makeStar());
+    }
   }
 
+  var eventsAttached = false;
   function updateBtn() {
     var el = document.getElementById(TRIGGER_ID);
     if (!el) { btnCx = -9999; btnCy = -9999; return; }
     var r = el.getBoundingClientRect();
     btnCx = r.left + r.width  / 2;
     btnCy = r.top  + r.height / 2;
+    if (!eventsAttached) {
+      el.addEventListener('mouseenter', function () { if (!reduce) surgeTarget = 1; });
+      el.addEventListener('mouseleave', function () { surgeTarget = 0; });
+      eventsAttached = true;
+    }
   }
   function resize() {
     W = window.innerWidth; H = window.innerHeight;
@@ -1258,12 +1392,6 @@
   }
 
   function frame(now) {
-    // proximity check — update surgeTarget
-    if (!reduce && btnCx > 0) {
-      var dx = mx - btnCx, dy = my - btnCy;
-      surgeTarget = (dx * dx + dy * dy < TRIGGER_RADIUS * TRIGGER_RADIUS) ? 1 : 0;
-    }
-
     // smoothly interpolate surgeLevel toward surgeTarget
     var step = (1000 / FPS) / SURGE_FADE_MS;
     if (surgeLevel < surgeTarget) surgeLevel = Math.min(1, surgeLevel + step);
@@ -1317,6 +1445,145 @@
     el.innerHTML = i < full.length ? html + '|' : html;
     if (i < full.length) setTimeout(type, 55);
   }, 1200);
+})();
+  </script>
+  <script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  var XL = 'http://www.w3.org/1999/xlink';
+
+  function init() {
+    var docs       = document.getElementById('gsv-docs-btn');
+    var github     = document.getElementById('gsv-github-btn');
+    var disclaimer = document.querySelector('.card-disclaimer');
+    if (!docs || !github) return;
+
+    var wrap = docs.closest('.cta-buttons');
+    if (!wrap) return;
+    if (getComputedStyle(wrap).position === 'static') wrap.style.position = 'relative';
+
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0';
+    wrap.appendChild(svg);
+
+    var animated = false;
+    var curPath = null, curStar = null, curMotion = null;
+
+    function build() {
+      svg.innerHTML = '';
+      curPath = null; curStar = null; curMotion = null;
+
+      var wr = wrap.getBoundingClientRect();
+      var dr = docs.getBoundingClientRect();
+      var gr = github.getBoundingClientRect();
+
+      var x1 = dr.left - wr.left - 30;
+      var y1 = dr.top  - wr.top + dr.height / 2;
+      var x2 = gr.left - wr.left + gr.width  / 2;
+      var y2 = gr.top  - wr.top  - 12;
+      var mx = (x1 + x2) / 2;
+      var my = Math.min(y1, y2) - 90;
+
+      var dStr = 'M ' + x1.toFixed(1) + ' ' + y1.toFixed(1) +
+                 ' Q ' + mx.toFixed(1) + ' ' + my.toFixed(1) +
+                 ' '   + x2.toFixed(1) + ' ' + y2.toFixed(1);
+
+      var defs = document.createElementNS(NS, 'defs');
+      var grad = document.createElementNS(NS, 'linearGradient');
+      grad.id = 'arch-grad';
+      grad.setAttribute('gradientUnits', 'userSpaceOnUse');
+      grad.setAttribute('x1', x1); grad.setAttribute('y1', y1);
+      grad.setAttribute('x2', x2); grad.setAttribute('y2', y2);
+      var s1 = document.createElementNS(NS, 'stop');
+      s1.setAttribute('offset', '0%');   s1.setAttribute('stop-color', '#B3AEFF');
+      var s2 = document.createElementNS(NS, 'stop');
+      s2.setAttribute('offset', '100%'); s2.setAttribute('stop-color', '#5EF2A0');
+      grad.appendChild(s1); grad.appendChild(s2);
+      defs.appendChild(grad);
+      svg.appendChild(defs);
+
+      var path = document.createElementNS(NS, 'path');
+      path.id = 'arch-path';
+      path.setAttribute('d', dStr);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', 'url(#arch-grad)');
+      path.setAttribute('stroke-width', '2');
+      path.setAttribute('stroke-linecap', 'round');
+      path.setAttribute('opacity', '0.6');
+      svg.appendChild(path);
+
+      var star = document.createElementNS(NS, 'text');
+      star.textContent = '*';
+      star.setAttribute('font-family', "'JetBrains Mono', monospace");
+      star.setAttribute('font-size', '18');
+      star.setAttribute('font-weight', '700');
+      star.setAttribute('fill', '#ffffff');
+      star.setAttribute('text-anchor', 'middle');
+      star.setAttribute('dominant-baseline', 'middle');
+      star.setAttribute('opacity', '0');
+
+      var len = path.getTotalLength();
+
+      if (reduce || animated) {
+        path.style.strokeDasharray  = 'none';
+        path.style.strokeDashoffset = '0';
+        var ep = path.getPointAtLength(len);
+        star.setAttribute('transform', 'translate(' + ep.x + ',' + ep.y + ')');
+        star.setAttribute('opacity', '1');
+        svg.appendChild(star);
+        return;
+      }
+
+      var motion = document.createElementNS(NS, 'animateMotion');
+      motion.setAttribute('dur', '1.6s');
+      motion.setAttribute('fill', 'freeze');
+      motion.setAttribute('begin', 'indefinite');
+      motion.setAttribute('calcMode', 'spline');
+      motion.setAttribute('keyTimes', '0;1');
+      motion.setAttribute('keySplines', '0.45 0 0.25 1');
+      motion.setAttribute('rotate', '0');
+      var mpath = document.createElementNS(NS, 'mpath');
+      mpath.setAttributeNS(XL, 'href', '#arch-path');
+      motion.appendChild(mpath);
+      star.appendChild(motion);
+      svg.appendChild(star);
+
+      path.style.strokeDasharray  = len;
+      path.style.strokeDashoffset = len;
+
+      curPath = path; curStar = star; curMotion = motion;
+    }
+
+    function trigger() {
+      if (!curPath || !curStar || !curMotion) return;
+      curStar.setAttribute('opacity', '1');
+      curPath.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(0.45, 0, 0.25, 1)';
+      curPath.style.strokeDashoffset = '0';
+      curMotion.beginElement();
+      animated = true;
+    }
+
+    function onMouseMove(e) {
+      if (animated) { window.removeEventListener('mousemove', onMouseMove); return; }
+      if (!disclaimer) return;
+      if (e.clientY > disclaimer.getBoundingClientRect().bottom) {
+        window.removeEventListener('mousemove', onMouseMove);
+        trigger();
+      }
+    }
+
+    build();
+    if (!reduce) window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('resize', build);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
   </script>
 </body>
