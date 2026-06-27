@@ -51,16 +51,14 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/gsv-ds.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #07061A;
-      color: #F4F2FF;
-      font-family: 'Space Grotesk', -apple-system, Roboto, Helvetica, sans-serif;
+      background: var(--void);
+      color: var(--text-hi);
+      font-family: var(--gsv-font-prose);
       min-height: 100vh;
     }
 
@@ -73,7 +71,7 @@
       padding: 22px 64px;
       justify-content: flex-start;
       align-items: center;
-      border-bottom: 1px solid #322E74;
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-center {
@@ -95,16 +93,16 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #5EF2A0;
+      background: var(--online);
       flex-shrink: 0;
     }
 
     .nav-launched {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-size: 16px;
       font-weight: 700;
       letter-spacing: 2.5px;
-      color: #5EF2A0;
+      color: var(--online);
       text-shadow: 0 0 14px rgba(94, 242, 160, 0.45);
     }
 
@@ -122,19 +120,19 @@
     }
 
     .nav-logo {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 1px;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .nav-beta {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 1px;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .nav-right {
@@ -146,15 +144,15 @@
     }
 
     .nav-link {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-size: 13px;
       font-weight: 400;
       letter-spacing: 0.5px;
-      color: #B3AEE2;
+      color: var(--label);
       transition: color 0.2s;
     }
 
-    .nav-link:hover { color: #F4F2FF; }
+    .nav-link:hover { color: var(--text-hi); }
 
     /* ── HERO ── */
     .hero {
@@ -175,25 +173,26 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #5EF2A0;
+      background: var(--online);
       flex-shrink: 0;
     }
 
     .eyebrow-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
       letter-spacing: 2px;
-      color: #B3AEFF;
+      color: var(--accent);
     }
 
     .hero-headline {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: var(--gsv-font-mono);
       font-size: 62px;
       font-weight: 700;
       line-height: 104%;
       text-align: center;
-      color: #F4F2FF;
+      letter-spacing: -0.02em;
+      color: var(--text-hi);
       animation: headline-land 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
@@ -225,8 +224,8 @@
       flex-direction: column;
       align-items: center;
       border-radius: 12px;
-      border: 1px solid #322E74;
-      background: #0A0820;
+      border: 1px solid var(--border);
+      background: var(--panel);
       overflow: hidden;
     }
 
@@ -236,8 +235,8 @@
       justify-content: space-between;
       align-items: center;
       align-self: stretch;
-      border-bottom: 1px solid #322E74;
-      background: #13112E;
+      border-bottom: 1px solid var(--border);
+      background: var(--header-bar);
     }
 
     .chrome-dots {
@@ -253,9 +252,9 @@
       flex-shrink: 0;
     }
 
-    .dot-red   { background: #FF6F8C; }
-    .dot-yellow{ background: #FFD24D; }
-    .dot-green { background: #5EF2A0; }
+    .dot-red   { background: var(--error); }
+    .dot-yellow{ background: var(--update); }
+    .dot-green { background: var(--online); }
 
     .chrome-url {
       display: flex;
@@ -263,12 +262,12 @@
       align-items: center;
       gap: 8px;
       border-radius: 5px;
-      border: 1px solid #25224D;
-      background: #0B0A1E;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      border: 1px solid var(--rule-inner);
+      background: var(--node-bg);
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
-      color: #C4BFEE;
+      color: var(--node-label);
     }
 
     .card-body {
@@ -281,9 +280,10 @@
     }
 
     .card-title {
+      font-family: var(--gsv-font-mono);
       font-size: 23px;
       font-weight: 700;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .card-desc {
@@ -292,7 +292,7 @@
       font-weight: 400;
       line-height: 150%;
       text-align: center;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     .steps-list {
@@ -308,21 +308,21 @@
       align-items: center;
       gap: 14px;
       border-radius: 8px;
-      border: 1px solid #322E74;
-      background: #0B0A1E;
+      border: 1px solid var(--border);
+      background: var(--node-bg);
     }
 
     .step-number {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-size: 13px;
       font-weight: 500;
-      color: #B3AEFF;
+      color: var(--accent);
     }
 
     .step-label {
       font-size: 15px;
       font-weight: 500;
-      color: #EFEEFE;
+      color: var(--text);
     }
 
     .deploy-btn {
@@ -331,8 +331,8 @@
       align-items: center;
       gap: 16px;
       border-radius: 7px;
-      border: 1px solid #4A449E;
-      background: #5A52A8;
+      border: 1px solid var(--border-raised);
+      background: var(--dashed);
       cursor: pointer;
       transition: background 0.2s;
     }
@@ -340,23 +340,24 @@
     .deploy-btn:hover { background: #6860c0; }
 
     .deploy-btn-text {
+      font-family: var(--gsv-font-mono);
       font-size: 15px;
       font-weight: 700;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .deploy-btn-arrow {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-size: 15px;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .card-disclaimer {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
       text-align: center;
-      color: #6B66C4;
+      color: var(--bracket);
       line-height: 160%;
     }
 
@@ -373,25 +374,26 @@
       padding: 13px 26px;
       align-items: center;
       border-radius: 7px;
-      border: 1px solid #322E74;
+      border: 1px solid var(--border);
       background: transparent;
+      font-family: var(--gsv-font-mono);
       font-size: 15px;
       font-weight: 500;
-      color: #B3AEE2;
+      color: var(--label);
       cursor: pointer;
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .btn-outline:hover { border-color: #B3AEFF; color: #F4F2FF; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--text-hi); }
 
     #gsv-github-btn {
       transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
 
     #gsv-github-btn:hover {
-      background: #5EF2A0;
-      border-color: #5EF2A0;
-      color: #07061A;
+      background: var(--online);
+      border-color: var(--online);
+      color: var(--void);
     }
 
     /* ── DEMO SECTION ── */
@@ -405,18 +407,19 @@
     }
 
     .section-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
       letter-spacing: 2px;
-      color: #6B66C4;
+      color: var(--bracket);
     }
 
     .section-headline {
+      font-family: var(--gsv-font-mono);
       font-size: 42px;
       font-weight: 700;
       text-align: center;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .section-subtitle {
@@ -425,7 +428,7 @@
       font-weight: 400;
       line-height: 150%;
       text-align: center;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     .video-placeholder {
@@ -438,8 +441,8 @@
       justify-content: center;
       gap: 16px;
       border-radius: 12px;
-      border: 1px solid #322E74;
-      background: #0A0820;
+      border: 1px solid var(--border);
+      background: var(--panel);
     }
 
     .play-btn {
@@ -449,17 +452,17 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      border: 1px solid #322E74;
-      background: #13112E;
+      border: 1px solid var(--border);
+      background: var(--header-bar);
     }
 
     .play-btn svg { margin-left: 3px; }
 
     .video-coming-soon {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
-      color: #6B66C4;
+      color: var(--bracket);
     }
 
     /* ── KERNEL DIAGRAM ── */
@@ -491,30 +494,30 @@
       align-items: center;
       gap: 10px;
       border-radius: 8px;
-      border: 1px solid #322E74;
-      background: #0A0820;
+      border: 1px solid var(--border);
+      background: var(--panel);
     }
 
     .device-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #5EF2A0;
+      background: var(--online);
       flex-shrink: 0;
     }
 
     .device-name {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-size: 14px;
       font-weight: 400;
-      color: #C4BFEE;
+      color: var(--node-label);
     }
 
     .kernel-arrow {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-size: 18px;
       font-weight: 400;
-      color: #6B66C4;
+      color: var(--bracket);
     }
 
     .kernel-card {
@@ -524,21 +527,22 @@
       align-items: center;
       gap: 6px;
       border-radius: 5px;
-      border: 1.5px solid #4A449E;
-      background: #13112E;
+      border: 1.5px solid var(--border-raised);
+      background: var(--header-bar);
     }
 
     .kernel-title {
+      font-family: var(--gsv-font-mono);
       font-size: 20px;
       font-weight: 700;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .kernel-tagline {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
-      color: #B3AEFF;
+      color: var(--accent);
     }
 
     /* ── VALUE PROPS ── */
@@ -558,29 +562,30 @@
       gap: 14px;
       flex: 1;
       border-radius: 12px;
-      border: 1px solid #322E74;
-      background: #0A0820;
+      border: 1px solid var(--border);
+      background: var(--panel);
     }
 
     .prop-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
       letter-spacing: 1px;
-      color: #6B66C4;
+      color: var(--bracket);
     }
 
     .prop-title {
+      font-family: var(--gsv-font-mono);
       font-size: 19px;
       font-weight: 700;
-      color: #E2DFFF;
+      color: var(--text-title);
     }
 
     .prop-desc {
       font-size: 15px;
       font-weight: 400;
       line-height: 152%;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     /* ── NOT ANOTHER SECTION ── */
@@ -594,20 +599,20 @@
     }
 
     .differentiator-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
       letter-spacing: 2px;
-      color: #6B66C4;
+      color: var(--bracket);
     }
 
     .differentiator-headline {
-      max-width: 600px;
+      font-family: var(--gsv-font-mono);
       font-size: 48px;
       font-weight: 700;
       line-height: 110%;
       text-align: center;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .differentiator-desc {
@@ -616,7 +621,7 @@
       font-weight: 400;
       line-height: 156%;
       text-align: center;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     /* ── UNDER THE HOOD ── */
@@ -643,7 +648,7 @@
       font-weight: 400;
       line-height: 155%;
       text-align: center;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     .under-hood-list {
@@ -662,15 +667,15 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 155%;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     .under-hood-list li::before {
       content: '—';
       position: absolute;
       left: 0;
-      color: #4A449E;
-      font-family: 'JetBrains Mono', monospace;
+      color: var(--border-raised);
+      font-family: var(--gsv-font-mono);
     }
 
     /* ── FAQ ── */
@@ -693,13 +698,13 @@
 
     .faq-item {
       border-radius: 10px;
-      border: 1px solid #322E74;
-      background: #0A0820;
+      border: 1px solid var(--border);
+      background: var(--panel);
       overflow: hidden;
       transition: border-color 0.2s;
     }
 
-    .faq-item[open] { border-color: #4A449E; }
+    .faq-item[open] { border-color: var(--border-raised); }
 
     .faq-item summary {
       display: flex;
@@ -709,19 +714,19 @@
       cursor: pointer;
       font-size: 16px;
       font-weight: 600;
-      color: #E2DFFF;
+      color: var(--text-title);
       list-style: none;
       user-select: none;
       gap: 16px;
     }
 
     .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary:hover { color: #F4F2FF; }
+    .faq-item summary:hover { color: var(--text-hi); }
 
     .faq-indicator {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--gsv-font-mono);
       font-size: 20px;
-      color: #6B66C4;
+      color: var(--bracket);
       flex-shrink: 0;
       transition: transform 0.2s;
       line-height: 1;
@@ -734,7 +739,7 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 155%;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     .faq-answer p + p { margin-top: 12px; }
@@ -757,8 +762,8 @@
       content: '—';
       position: absolute;
       left: 0;
-      color: #4A449E;
-      font-family: 'JetBrains Mono', monospace;
+      color: var(--border-raised);
+      font-family: var(--gsv-font-mono);
     }
 
     .faq-answer strong {
@@ -777,18 +782,19 @@
     }
 
     .newsletter-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
       letter-spacing: 2px;
-      color: #6B66C4;
+      color: var(--bracket);
     }
 
     .newsletter-headline {
+      font-family: var(--gsv-font-mono);
       font-size: 26px;
       font-weight: 700;
       text-align: center;
-      color: #F4F2FF;
+      color: var(--text-hi);
     }
 
     .newsletter-desc {
@@ -796,7 +802,7 @@
       font-weight: 400;
       line-height: 150%;
       text-align: center;
-      color: #B3AEE2;
+      color: var(--label);
     }
 
     .newsletter-row {
@@ -810,18 +816,18 @@
       flex: 1;
       padding: 12px 16px;
       border-radius: 7px;
-      border: 1px solid #322E74;
-      background: #0B0A1E;
+      border: 1px solid var(--border);
+      background: var(--node-bg);
       font-size: 14px;
-      font-family: 'Space Grotesk', sans-serif;
-      color: #F4F2FF;
+      font-family: var(--gsv-font-prose);
+      color: var(--text-hi);
       outline: none;
       transition: border-color 0.2s;
       min-width: 0;
     }
 
-    .newsletter-input::placeholder { color: #565199; }
-    .newsletter-input:focus { border-color: #4A449E; }
+    .newsletter-input::placeholder { color: var(--text-dim); }
+    .newsletter-input:focus { border-color: var(--border-raised); }
 
     .newsletter-btn {
       display: flex;
@@ -829,12 +835,12 @@
       align-items: center;
       gap: 8px;
       border-radius: 7px;
-      border: 1px solid #4A449E;
-      background: #5A52A8;
+      border: 1px solid var(--border-raised);
+      background: var(--dashed);
       font-size: 14px;
       font-weight: 700;
-      font-family: 'Space Grotesk', sans-serif;
-      color: #F4F2FF;
+      font-family: var(--gsv-font-mono);
+      color: var(--text-hi);
       cursor: pointer;
       transition: background 0.2s;
       white-space: nowrap;
@@ -849,14 +855,14 @@
       padding: 28px 64px;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #322E74;
+      border-top: 1px solid var(--border);
     }
 
     .footer-copy {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
-      color: #565199;
+      color: var(--label);
     }
 
     .footer-links {
@@ -866,14 +872,14 @@
     }
 
     .footer-link {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-family: var(--gsv-font-mono);
+      font-size: 13px;
       font-weight: 400;
-      color: #B3AEE2;
+      color: var(--label);
       transition: color 0.2s;
     }
 
-    .footer-link:hover { color: #F4F2FF; }
+    .footer-link:hover { color: var(--text-hi); }
 
     /* ── STARFIELD ── */
     #gsv-starfield {
@@ -1018,7 +1024,7 @@
     <div class="video-placeholder">
       <div class="play-btn">
         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1.5L17 10L1 18.5V1.5Z" fill="#B3AEFF" stroke="#B3AEFF" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M1 1.5L17 10L1 18.5V1.5Z" fill="var(--accent)" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
         </svg>
       </div>
       <span class="video-coming-soon">demo video — coming soon</span>
@@ -1076,7 +1082,7 @@
   <!-- DIFFERENTIATOR -->
   <section class="differentiator-section">
     <span class="differentiator-tag">NOT ANOTHER SINGLE-BOX AGENT</span>
-    <h2 class="differentiator-headline">a computer, not an agent stuck on one host</h2>
+    <h2 class="differentiator-headline">a computer, not an agent<br>stuck on one host</h2>
     <p class="differentiator-desc">Most self-hosted AI runs on a single machine you pick and manage. When that machine is off, it's gone. GSV's brain lives on the edge — connecting every device you own into one computer that never sleeps.</p>
   </section>
 
@@ -1144,7 +1150,7 @@
           <span class="faq-indicator">+</span>
         </summary>
         <div class="faq-answer">
-          <p><strong>Yes, MIT licensed</strong>, all the code is public: <a href="https://github.com/deathbyknowledge/gsv" style="color:#B3AEFF;">github.com/deathbyknowledge/gsv</a>. Read every line yourself.</p>
+          <p><strong>Yes, MIT licensed</strong>, all the code is public: <a href="https://github.com/deathbyknowledge/gsv" style="color:var(--accent);">github.com/deathbyknowledge/gsv</a>. Read every line yourself.</p>
           <p>One honest distinction: <strong>open source is true today</strong>. Full self-hosting off Cloudflare is <strong>on the roadmap, not shipped</strong>. Today GSV runs in your own Cloudflare account, with your keys and your data, rather than fully on your own metal. The code is all there; running it off Cloudflare just isn't supported yet.</p>
         </div>
       </details>
@@ -1497,9 +1503,9 @@
       grad.setAttribute('x1', x1); grad.setAttribute('y1', y1);
       grad.setAttribute('x2', x2); grad.setAttribute('y2', y2);
       var s1 = document.createElementNS(NS, 'stop');
-      s1.setAttribute('offset', '0%');   s1.setAttribute('stop-color', '#B3AEFF');
+      s1.setAttribute('offset', '0%');   s1.setAttribute('stop-color', 'var(--accent)');
       var s2 = document.createElementNS(NS, 'stop');
-      s2.setAttribute('offset', '100%'); s2.setAttribute('stop-color', '#5EF2A0');
+      s2.setAttribute('offset', '100%'); s2.setAttribute('stop-color', 'var(--online)');
       grad.appendChild(s1); grad.appendChild(s2);
       defs.appendChild(grad);
       svg.appendChild(defs);

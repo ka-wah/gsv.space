@@ -1,0 +1,87 @@
+/* ============================================================
+   GSV design system — single source of truth for gsv.space
+   Fonts (self-hosted, SIL OFL 1.1) + tokens from gsv/web.
+   ============================================================ */
+
+/* ── FONTS ── */
+@font-face {
+  font-family: "Departure Mono";
+  src: url("/DepartureMono-Regular.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/SpaceGrotesk-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/SpaceGrotesk-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/SpaceGrotesk-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── DESIGN TOKENS ── */
+:root {
+  /* font stacks */
+  --gsv-font-mono: "Departure Mono", "JetBrains Mono", "IBM Plex Mono", monospace;
+  --gsv-font-prose: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+
+  /* surfaces */
+  --void:          #07061a;
+  --panel:         #0a0820;
+  --panel-2:       #0a0822;
+  --node-bg:       #0b0a1e;
+  --header-bar:    #13112e;
+  --frame-lo:      #08061c;
+  --frame-hi:      #161240;
+  --field-deep:    #070612;
+  --shadow-deep:   #060414;
+  --frame-inset:   #060414;
+
+  /* borders & rules */
+  --border:        #322e74;
+  --border-raised: #4a449e;
+  --rule-inner:    #25224d;
+  --rule-section:  #3a3676;
+  --bracket:       #6b66c4;
+  --dashed:        #5a52a8;
+
+  /* text & accent */
+  --text-hi:       #f4f2ff;
+  --text:          #efeefe;
+  --text-title:    #e2dfff;
+  --accent:        #b3aeff;
+  --accent-bright: #cbc7ff;
+  --label:         #b3aee2;
+  --node-label:    #c4bfee;
+  --text-muted:    #8c86c8;
+  --prose-dim:     #9089d4;
+  --meta:          #7d78b8;
+  --text-dim:      #565199;
+
+  /* status */
+  --online:        #5ef2a0;
+  --error:         #ff6f8c;
+  --idle:          #6661a0;
+  --update:        #ffd24d;
+  --live:          #8f8aff;
+
+  /* action accents */
+  --primary-hi:    #6b62c4;
+  --danger:        #a8324a;
+  --danger-hi:     #c4445f;
+}
