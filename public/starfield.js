@@ -18,7 +18,7 @@
 (function () {
   var DENSITY        = 9000;
   var MAX_STARS      = 320;
-  var SPARKLES       = 5;
+  var SPARKLES       = 3;
   var FPS            = 15;
   var MONO           = "'Departure Mono','JetBrains Mono','IBM Plex Mono',monospace";
 
@@ -26,7 +26,7 @@
   var TRIGGER_RADIUS = 50;
   var SURGE_EXTRA    = 8000;  // was 400
   var SURGE_FADE_MS  = 150;   // was 600 — snaps in fast
-  var SPARKLES       = 5;     // leave this
+  var SPARKLES       = 3;     // leave this
   var DENSITY        = 5000;  // leave this
 
   var TIERS = [
@@ -97,7 +97,7 @@
       baseStars.push({
         x: Math.random() * W, y: Math.random() * H,
         ch: pick(['\u2022', '+']),
-        color: Math.random() < 0.5 ? MINT : SPK,
+        color: Math.random() < 0.15 ? MINT : SPK,
         base: rnd(0.55, 0.95), sz: rnd(24, 32),
         phase: Math.random() * Math.PI * 2, speed: rnd(0.9, 1.6) * 2.2, spark: true
       });
@@ -144,7 +144,8 @@
         var osc = 0.45 + 0.55 * q;
         a = s.base * (s.spark ? osc * osc : osc);
       }
-      ctx.globalAlpha = Math.max(0, Math.min(1, a * alphaScale));
+      var mintScale = (s.color === MINT) ? (1 - surgeLevel * 0.7) : 1;
+      ctx.globalAlpha = Math.max(0, Math.min(1, a * alphaScale * mintScale));
       ctx.fillStyle   = s.color;
       ctx.font        = s.sz.toFixed(1) + 'px ' + MONO;
       ctx.fillText(s.ch, s.x, s.y);
